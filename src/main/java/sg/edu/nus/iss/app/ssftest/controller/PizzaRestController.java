@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import sg.edu.nus.iss.app.ssftest.model.NotFound;
 import sg.edu.nus.iss.app.ssftest.model.PizzaOrder;
 import sg.edu.nus.iss.app.ssftest.service.OrderService;
 
@@ -26,10 +26,12 @@ public class PizzaRestController {
             throws IOException {
         PizzaOrder po = oSvc.findById(poId);
         if (po == null) {
+            NotFound nf = new NotFound();
+            nf.setMessage("Order "+poId+" not found");
             return ResponseEntity
                     .status(HttpStatus.NOT_FOUND)
                     .contentType(MediaType.APPLICATION_JSON)
-                    .body("Order" + poId + "not found");
+                    .body(nf.toJSON().toString());
         }
         return ResponseEntity
                 .status(HttpStatus.OK)

@@ -1,10 +1,12 @@
 package sg.edu.nus.iss.app.ssftest.model;
 
+import java.io.Serializable;
+
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-public class Details {
+public class Details implements Serializable{
     @NotNull(message="Name cannot be empty")
     @Size(min=3,message = "Name must be atleast 3 chars")
     private String name;

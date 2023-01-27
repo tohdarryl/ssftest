@@ -3,12 +3,13 @@ package sg.edu.nus.iss.app.ssftest.model;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
 
-public class PizzaOrder {
+public class PizzaOrder implements Serializable{
     private String orderId;
     private String name;
     private String address;

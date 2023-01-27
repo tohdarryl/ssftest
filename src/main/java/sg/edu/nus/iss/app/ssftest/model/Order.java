@@ -1,10 +1,12 @@
 package sg.edu.nus.iss.app.ssftest.model;
 
+import java.io.Serializable;
+
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 
-public class Order {
+public class Order implements Serializable{
     
     @NotNull(message="Must have a pizza selection")
     private String pizza;
