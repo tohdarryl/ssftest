@@ -14,7 +14,7 @@ public class Order implements Serializable{
     @NotNull(message="Must have a size")
     private String size;
 
-    @NotNull
+    @NotNull(message="Quantity cannot be null")
     @Min(value=1, message="Quantity cannot be less than 1")
     @Max(value=10, message="Quantity cannot be more than 10")
     private Integer quantity;
